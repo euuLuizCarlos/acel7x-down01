@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
   <!-- SCRIPT KASHPAY (1-CLICK PROCESSOR) -->
-  <script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" data-kashpay-upsell-delay-support></script>
+  <script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
 
   <style>
     * {
@@ -153,50 +153,6 @@
       color: #94a3b8;
     }
 
-    /* Títulos de Seção */
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-top: 28px;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    /* Calcul/Comparativo de Resultados */
-    .calcul {
-      background: #161b22;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      border: 1px solid #30363d;
-    }
-
-    .calcul-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #30363d;
-    }
-
-    .calcul-row:last-child {
-      border-bottom: none;
-    }
-
-    .calcul-label {
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-
-    .calcul-val {
-      font-weight: 900;
-      font-size: 1.1rem;
-    }
-
-    .calcul-val.bad { color: #ef4444; }
-    .calcul-val.good { color: #22c55e; font-size: 1.3rem; }
-
     /* Lista de Conteúdo */
     .contenu {
       background: #161b22;
@@ -316,7 +272,7 @@
 
   <!-- Topo de Alerta -->
   <div class="top-bar">
-    ⚠️ ¡Espera! No cierres esta página — Oferta especial de descuento final
+    ⚠️️ ¡Espera! No cierres esta página — Oferta especial de descuento final
   </div>
 
   <main class="wrap">
@@ -325,7 +281,7 @@
 
     <p>Acabas de asegurar el <strong>Protocolo NeuroHoney</strong>, lo cual es un paso brillante para proteger tu memoria y limpiar tu cerebro. Pero saltarte el proceso de desinflamación de la barrera hematoencefálica puede ralentizar tus resultados.</p>
     
-    <p>Si la inversión completa del Acelerador 7X no encaja en tus planes en este exacto momento, no quiero que te quedes sin la llave maestra que acelera la absorción del orotato de litio.</p>
+    <p>Si la inversión completa del Acelerador 7X no encaja en tus planes en este exacto momento, no quiero que te quedes sin la llave maestra que acelera la absorción de los nutrientes.</p>
 
     <!-- Cards Comparação Absorção -->
     <div class="duel">
@@ -341,7 +297,7 @@
       </div>
     </div>
 
-    <!-- Stat Yale / Médica -->
+    <!-- Stat Médica -->
     <div class="stat">
       <div class="stat-num">7X</div>
       <div class="stat-text">más velocidad de asimilación cerebral aplicando el protocolo enzimático simplificado de 2 minutos por la mañana.<br><em>— Bill Gates</em></div>
@@ -376,8 +332,8 @@
       <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:0; margin-top:4px;">Técnicas nocturnas para limpiar las toxinas del cerebro mientras duermes.</p>
     </div>
 
-    <!-- Bloco de Urgência & Preço (Desconto de $19) -->
-    <div class="derniere">⚠️ ÚLTIMA OPORTUNIDAD — REBAJA EXCLUSIVA DE DOWNSELL</div>
+    <!-- Bloco de Urgência & Preço -->
+    <div class="derniere">⚠️ ÚLTIMA OPORTUNIDAD</div>
     <p style="text-align:center; font-size:0.83rem; color:#94a3b8; margin-top:8px;">Esta página no volverá a aparecer. Tras salir de aquí, el acceso a este precio especial desaparece.</p>
 
     <div class="prix-bloc">
@@ -386,15 +342,11 @@
       <p style="font-size:0.83rem; color:#94a3b8; margin-top:4px;">Pago único. Sin suscripciones. Con guía de sueño incluida.</p>
     </div>
 
-    <!-- BOTÕES KASHPAY 1-CLICK -->
-    <div class="upsell-box" data-kashpay-upsell-delay="0">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;">
-        <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/SEU_LINK_DE_DOWNSELL_AQUI')" style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%; box-shadow: 0 4px 14px rgba(5, 121, 50, 0.4);">
-          ¡SÍ, QUIERO EL ACELERADOR ESSENTIAL POR SOLO $19!
-        </button>
-        <button type="button" onclick="declineUpsell('https://checkout.kashpay.com.br/u/SEU_LINK_DE_DOWNSELL_AQUI')" style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #dc2626; border: none; border-radius: 10px; padding: 10px 5%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%;">
-          No, gracias — Prefiero renunciar a este descuento y continuar solo con mi pedido principal.
-        </button>
+    <!-- BOTÕES KASHPAY 1-CLICK ATUALIZADOS -->
+    <div class="upsell-box">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/bcb000c647453f6d')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%; box-shadow: 0 4px 14px rgba(5, 121, 50, 0.4);">¡SÍ, QUERO EL ACELERADOR ESSENTIAL POR SOLO $19!</button>
+        <button type="button" onclick="declineUpsell('https://checkout.kashpay.com.br/u/bcb000c647453f6d')" style="font-family: 'Poppins'; font-size: 15px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #dc2626; border: none; border-radius: 10px; padding: 10px 5%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%;">NO, GRACIAS</button>
       </div>
     </div>
 
