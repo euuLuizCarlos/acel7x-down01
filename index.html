@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Espera ! — Protocolo NeuroHoney</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <!-- SCRIPT KASHPAY (1-CLICK PROCESSOR) -->
+  <script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" data-kashpay-upsell-delay-support></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 60px;
+    }
+
+    /* Topo de Alerta */
+    .top-bar {
+      width: 100%;
+      background: #dc2626;
+      color: #ffffff;
+      text-align: center;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-transform: uppercase;
+    }
+
+    /* Main Wrapper */
+    .wrap {
+      width: 100%;
+      max-width: 650px;
+      padding: 24px 16px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .sous-titre {
+      font-size: 1.05rem;
+      color: #f59e0b;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #cbd5e1;
+    }
+
+    p strong {
+      color: #ffffff;
+    }
+
+    /* Grid do Duelo (Barreira Hematoencefálica / Absorção) */
+    .duel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .duel-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .duel-card.mauvaises {
+      border-color: #7f1d1d;
+      background: rgba(127, 29, 29, 0.2);
+    }
+
+    .duel-card.bonnes {
+      border-color: #14532d;
+      background: rgba(20, 83, 45, 0.2);
+    }
+
+    .duel-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .duel-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .duel-card.mauvaises .duel-title { color: #f87171; }
+    .duel-card.bonnes .duel-title { color: #4ade80; }
+
+    .duel-desc {
+      font-size: 0.83rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Stat Box */
+    .stat {
+      background: #161b22;
+      border-left: 4px solid #f59e0b;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #f59e0b;
+      line-height: 1;
+    }
+
+    .stat-text {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Títulos de Seção */
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 28px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* Calcul/Comparativo de Resultados */
+    .calcul {
+      background: #161b22;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      border: 1px solid #30363d;
+    }
+
+    .calcul-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .calcul-row:last-child {
+      border-bottom: none;
+    }
+
+    .calcul-label {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .calcul-val {
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .calcul-val.bad { color: #ef4444; }
+    .calcul-val.good { color: #22c55e; font-size: 1.3rem; }
+
+    /* Lista de Conteúdo */
+    .contenu {
+      background: #161b22;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      border: 1px solid #30363d;
+    }
+
+    .contenu-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 0.93rem;
+    }
+
+    .contenu-item:last-child { margin-bottom: 0; }
+    .contenu-check { color: #22c55e; font-weight: bold; }
+
+    /* Bonus Box */
+    .bonus-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(0, 0, 0, 0));
+      border: 1px solid #f59e0b;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .bonus-tag {
+      background: #f59e0b;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .bonus-title {
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    /* Bloco de Última Chance & Preço */
+    .derniere {
+      background: #7f1d1d;
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-top: 30px;
+      text-transform: uppercase;
+    }
+
+    .prix-bloc {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .prix-old {
+      text-decoration: line-through;
+      color: #64748b;
+      font-size: 1.1rem;
+      margin-right: 10px;
+    }
+
+    .prix-new {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #22c55e;
+    }
+
+    /* Área do Botão KashPay */
+    .upsell-box {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .rassure {
+      font-size: 0.78rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* Seção Garantia */
+    .garantie {
+      width: 100%;
+      max-width: 650px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .garantie h3 {
+      font-size: 0.95rem;
+      color: #f59e0b;
+      margin-bottom: 8px;
+    }
+
+    .garantie p {
+      font-size: 0.83rem;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topo de Alerta -->
+  <div class="top-bar">
+    ⚠️ ¡Espera! No cierres esta página — Oferta especial de descuento final
+  </div>
+
+  <main class="wrap">
+    <h1>Entiendo perfectamente si $37 se sale de tu presupuesto hoy...<br>Por eso preparé esta alternativa esencial.</h1>
+    <p class="sous-titre">Accede a la versión simplificada del Acelerador 7X por un pago único de solo $19.</p>
+
+    <p>Acabas de asegurar el <strong>Protocolo NeuroHoney</strong>, lo cual es un paso brillante para proteger tu memoria y limpiar tu cerebro. Pero saltarte el proceso de desinflamación de la barrera hematoencefálica puede ralentizar tus resultados.</p>
+    
+    <p>Si la inversión completa del Acelerador 7X no encaja en tus planes en este exacto momento, no quiero que te quedes sin la llave maestra que acelera la absorción del orotato de litio.</p>
+
+    <!-- Cards Comparação Absorção -->
+    <div class="duel">
+      <div class="duel-card mauvaises">
+        <div class="duel-icon">⚠️</div>
+        <div class="duel-title">Barrera Bloqueada</div>
+        <div class="duel-desc">Absorción limitada al 20%-30%. Los nutrientes se eliminan y tardas meses en notar cambios reales en la memoria.</div>
+      </div>
+      <div class="duel-card bonnes">
+        <div class="duel-icon">⚡</div>
+        <div class="duel-title">Acelerador Express ($19)</div>
+        <div class="duel-desc">Desinflama la barrera de inmediato, eleva la absorción y activa la claridad mental en días, no en meses.</div>
+      </div>
+    </div>
+
+    <!-- Stat Yale / Médica -->
+    <div class="stat">
+      <div class="stat-num">7X</div>
+      <div class="stat-text">más velocidad de asimilación cerebral aplicando el protocolo enzimático simplificado de 2 minutos por la mañana.<br><em>— Bill Gates</em></div>
+    </div>
+
+    <p><strong>Lo que obtienes en esta versión esencial:</strong></p>
+
+    <!-- Conteúdo do Downsell -->
+    <div class="contenu">
+      <p style="font-weight:800; color:#fff; margin-bottom:12px;">⚡ Desbloqueado instantáneamente en tu área de miembros:</p>
+
+      <div class="contenu-item">
+        <span class="contenu-check">✓</span>
+        <div><strong>La Guía Esencial del Acelerador 7X (PDF)</strong> — el paso a paso resumido para preparar el activador matutino en 2 minutos.</div>
+      </div>
+
+      <div class="contenu-item">
+        <span class="contenu-check">✓</span>
+        <div><strong>El Protocolo de Sinergia con NeuroHoney</strong> — los horarios exactos para combinar ambos y maximizar la retención cognitiva.</div>
+      </div>
+
+      <div class="contenu-item">
+        <span class="contenu-check">✓</span>
+        <div><strong>Check-list de 21 Días</strong> — para seguir tus avances de memoria sin complicaciones.</div>
+      </div>
+    </div>
+
+    <!-- Bonus -->
+    <div class="bonus-box">
+      <span class="bonus-tag">INCLUIDO GRATIS</span>
+      <div class="bonus-title">Guía de Sueño Profundo Neuro-Regenerador (Valorado en $107)</div>
+      <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:0; margin-top:4px;">Técnicas nocturnas para limpiar las toxinas del cerebro mientras duermes.</p>
+    </div>
+
+    <!-- Bloco de Urgência & Preço (Desconto de $19) -->
+    <div class="derniere">⚠️ ÚLTIMA OPORTUNIDAD — REBAJA EXCLUSIVA DE DOWNSELL</div>
+    <p style="text-align:center; font-size:0.83rem; color:#94a3b8; margin-top:8px;">Esta página no volverá a aparecer. Tras salir de aquí, el acceso a este precio especial desaparece.</p>
+
+    <div class="prix-bloc">
+      <span class="prix-old">$37</span>
+      <span class="prix-new">$19</span>
+      <p style="font-size:0.83rem; color:#94a3b8; margin-top:4px;">Pago único. Sin suscripciones. Con guía de sueño incluida.</p>
+    </div>
+
+    <!-- BOTÕES KASHPAY 1-CLICK -->
+    <div class="upsell-box" data-kashpay-upsell-delay="0">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;">
+        <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/SEU_LINK_DE_DOWNSELL_AQUI')" style="font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%; box-shadow: 0 4px 14px rgba(5, 121, 50, 0.4);">
+          ¡SÍ, QUIERO EL ACELERADOR ESSENTIAL POR SOLO $19!
+        </button>
+        <button type="button" onclick="declineUpsell('https://checkout.kashpay.com.br/u/SEU_LINK_DE_DOWNSELL_AQUI')" style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #dc2626; border: none; border-radius: 10px; padding: 10px 5%; cursor: pointer; text-align: center; display: block; margin: auto; width: 100%;">
+          No, gracias — Prefiero renunciar a este descuento y continuar solo con mi pedido principal.
+        </button>
+      </div>
+    </div>
+
+    <div class="rassure">Agregado a tu pedido en un solo clic — no necesitas volver a digitar tu tarjeta.</div>
+
+    <!-- Garantia -->
+    <section class="garantie">
+      <h3>🛡️ Garantía Incondicional de 180 Días de Bill Gates</h3>
+      <p>Prueba la versión esencial durante los próximos 6 meses. Si no sientes una mejoría impresionante en tu claridad y velocidad mental, envíanos un correo y te devolveremos el 100% de tu dinero de inmediato. Conservas los bonos.</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
